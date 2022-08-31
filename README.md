@@ -1,5 +1,7 @@
 # Spoken corpus of Abaza Data Repository
 
+[![DOI](https://zenodo.org/badge/530969983.svg)](https://zenodo.org/badge/latestdoi/530969983)
+
 This repository is the place where the data from the [Spoken corpus of Abaza](http://lingconlab.ru/spoken_abaza/) is curated. This repository also provides an alternative way to access corpus data locally. The data is stored in `data_oral_abaza_corpus.csv` with 4094 rows and 13 columns:
 
 * `filename`
