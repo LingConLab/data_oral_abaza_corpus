@@ -2,7 +2,7 @@ library(tidyverse)
 files <- list.files("data", pattern = "json")
 
 map_dfr(files, function(json){
-  js <- jsonlite::read_json(str_c("data/", files[1]))
+  js <- jsonlite::read_json(str_c("data/", json))
   
   map_dfr(seq_along(js$sentences), function(i){
     js$sentences[[i]]$words %>% 
@@ -47,7 +47,7 @@ map_dfr(files, function(json){
       map_chr("off_end_src") ->
       time_end
     
-    tibble(filename = json,
+    tibble(filename = source_file,
            time_start = time_start,
            time_end = time_end,
            speaker = js$sentences[[i]]$meta$speaker,
@@ -80,3 +80,5 @@ result %>%
   left_join(translation_pairs) %>%
   select(filename, time_start, time_end, speaker, sentence_id, text, translation, word_forms, morphonology, gloss, language, dataset_creator, dataset_provider, sentence_id, translation)  %>%
   write_csv("data_oral_abaza_corpus.csv")
+
+## RUN encrypt.R
