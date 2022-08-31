@@ -47,7 +47,7 @@ map_dfr(files, function(json){
       map_chr("off_end_src") ->
       time_end
     
-    tibble(filename = source_file,
+    tibble(filename = json,
            time_start = time_start,
            time_end = time_end,
            speaker = js$sentences[[i]]$meta$speaker,
@@ -78,5 +78,5 @@ result %>%
          word_forms != "\n",
          word_forms != "") %>% 
   left_join(translation_pairs) %>%
-  select(filename, time_start, time_end, speaker, sentence_id, text, translation, word_forms, morphonology, gloss, language, dataset_creator, dataset_provider, sentence_id, translation)  %>% 
+  select(filename, time_start, time_end, speaker, sentence_id, text, translation, word_forms, morphonology, gloss, language, dataset_creator, dataset_provider, sentence_id, translation)  %>%
   write_csv("data_oral_abaza_corpus.csv")
